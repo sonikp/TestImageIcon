@@ -26,7 +26,9 @@ public class TestImageIcon
 	    {
 //	    	String iconPath = "/Users/Shared/Java-Libraries/SharedImages/X.png";
 //	    	String iconPath = "/home/notroot/Java/workspace/TestImageIcon/bin/X.png";
-	    	String iconPath = "images/X.png";
+//	    	String iconPath = "images/X.png";
+//	    	String iconPath = "resource/X.png";
+	    	String iconPath = "X.png";
 	    	Image img = ImageIO.read(this.getClass().getResource(iconPath));
 //	    	Image img = ImageIO.read(getClass().getResource("X.png"));
 	    	
