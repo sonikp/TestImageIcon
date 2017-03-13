@@ -63,7 +63,7 @@ public class JButtonImageExample
             }
         });	// end of listener method
         
-        // adding event listener for JButton=buttonImage
+        // adding event listener for JButton=buttonImage X-Image
         buttonImage.addActionListener(new ActionListener() 
         {
             @Override
@@ -76,12 +76,29 @@ public class JButtonImageExample
 			private void buttonActionPerformed(ActionEvent evt) 
 			{
 				// Auto-generated method stub
-				System.out.println("Private = buttonActionPerformed method clicked");
+				System.out.println("Private = buttonActionPerformed method clicked \"X-image\"");
+			}
+        });
+        
+        // adding event listener for JButton=buttonImage O-Image
+        buttonImageMsg.addActionListener(new ActionListener() 
+        {
+            @Override
+            public void actionPerformed(ActionEvent evt) 
+            {
+            	// delegate to event handler method
+                buttonActionPerformed(evt);
+            }
+
+			private void buttonActionPerformed(ActionEvent evt) 
+			{
+				// Auto-generated method stub
+				System.out.println("Private = buttonActionPerformed method clicked \"O-image\"");
 			}
         });
         
      // adding a popup event listener for JButton=buttonCustom
-        buttonImage.addActionListener(new ActionListener() 
+        buttonCustom.addActionListener(new ActionListener() 
         {
             @Override
             public void actionPerformed(ActionEvent evt) 
