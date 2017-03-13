@@ -23,6 +23,12 @@ public class TestImageIcon
 	    JButton button = new JButton("Click Me..");
 	    try
 	    {
+	    	// trouble shooting
+//	    	String iconPath = "X.png";
+//	    	String iconPath = "resource/X.png";
+//	    	Image img = ImageIO.read(getClass().getResource(iconPath));
+	    			
+	    	// original, works
 	    	Image img = ImageIO.read(getClass().getResource("X.png"));
             button.setIcon(new ImageIcon(img));
 	    }

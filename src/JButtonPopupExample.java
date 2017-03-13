@@ -1,15 +1,16 @@
+//nothing yet
+
 
 import javax.swing.JFrame; 
 import javax.swing.JButton;  
 
-public class JButtonExample 
+public class JButtonPopupExample 
 {
-	// constructor
-    JButtonExample()
+	JButtonPopupExample()
     {  
         // JFrame, top level container
         JFrame frame=new JFrame(); 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // always do this
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
                           
         // Creating Button          
         JButton button = new JButton("Click Me..");
@@ -34,6 +35,6 @@ public class JButtonExample
               
 	 public static void main(String[] args) 
 	 {  
-	        new JButtonExample();  
+	        new JButtonPopupExample();  
 	 }  
 }
