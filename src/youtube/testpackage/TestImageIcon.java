@@ -29,8 +29,8 @@ public class TestImageIcon
 //	    	String iconPath = "/images/X.png";
 //	    	String iconPath = "images/X.png";
 //	    	String iconPath = "resource/X.png";
-//	    	String iconPath = "X.png";
-	    	String iconPath = "/";
+	    	String iconPath = "/X.png";
+//	    	String iconPath = "/";
 	    	Image img = ImageIO.read(this.getClass().getResource(iconPath));
 //	    	Image img = ImageIO.read(getClass().getResource("X.png"));
 	    	
