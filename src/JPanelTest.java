@@ -1,9 +1,11 @@
 // http://docs.oracle.com/javase/tutorial/uiswing/layout/border.html
 // https://docs.oracle.com/javase/8/docs/api/java/awt/BorderLayout.html
+// http://www.java2s.com/Tutorial/Java/0240__Swing/Catalog0240__Swing.htm
 
 // frame and panel
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 
@@ -11,11 +13,15 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+import javax.swing.border.BevelBorder;
 
 // layout
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
@@ -24,140 +30,54 @@ public class JPanelTest extends JFrame
 {
 	public static void main(String[] args)
 	{
-		//new JPanelTest();
-		
-
-		//super("Prime Number Generation");
-		JFrame mainFrame = new JFrame("MainMethodJFrame");
-		mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		mainFrame.setSize(400,600);
-		mainFrame.setResizable(false);
-		
-		// main panel
-		JPanel mainPanel = new JPanel();
-		mainPanel.setLayout(new BorderLayout());
-		
-		//mainPanel.add(new JButton("Okay"), BorderLayout.NORTH);
-		mainPanel.add(new JButton("North"), BorderLayout.NORTH);
-		mainPanel.add(new JButton("South"), BorderLayout.SOUTH);
-		mainPanel.add(new JButton("East"), BorderLayout.EAST);
-		mainPanel.add(new JButton("West"), BorderLayout.WEST);
-		mainPanel.add(new JButton("Center"), BorderLayout.CENTER);
+		new JPanelTest();
 		
 		/*
+		// create frame container
+		JFrame mainFrame = new JFrame("Name this frame");
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.pack(); 			// resizes the window to accommodate the components within
+		mainFrame.setSize(400,300);
+        mainFrame.setResizable(false);
+		
+		// create a panel object
+		JPanel mainPanel = new JPanel(new GridLayout(2,2));
+		Container contents = mainFrame.getContentPane();
+		
 		// create buttons
-		JButton button = new JButton("Button1 (Page_Start)");
-		mainPanel.add(button, BorderLayout.PAGE_START);
+		JButton button1 = new JButton();
+		button1.setFont(new Font("Courier", Font.BOLD, 22));
+		button1.setForeground(Color.BLUE);
+		button1.setText("button 1");
 		
-		button = new JButton("Button2 (CENTER)");
-		mainPanel.add(button, BorderLayout.CENTER);
+		JButton button2 = new JButton();
+		button2.setFont(new Font("Courier", Font.BOLD, 22));
+		button2.setForeground(Color.RED);
+		button2.setText("button 2");
 		
-
-		button = new JButton("Button 3 (LINE_START)");
-		mainPanel.add(button, BorderLayout.LINE_START);
+		JButton button3 = new JButton();
+		button3.setFont(new Font("Courier", Font.BOLD, 22));
+		button3.setForeground(Color.GREEN);
+		button3.setText("button 3");
 		
-		button = new JButton("Long-Named Button 4 (PAGE_END)");
-		mainPanel.add(button, BorderLayout.PAGE_END);
+		JButton button4 = new JButton();
+		button4.setFont(new Font("Courier", Font.BOLD, 22));
+		button4.setForeground(Color.MAGENTA);
+		button4.setText("button 4");
 		
-		button = new JButton("5 (LINE_END)");
-		mainPanel.add(button, BorderLayout.LINE_END);
-		*/
-		
-		
-		
-		
-		
-		
-		
-		// display all panel components
-		mainFrame.add(mainPanel);
-		mainFrame.setVisible(true);
-
+		// add buttons to panel
+		mainPanel.add(button1);
+		mainPanel.add(button2);
+		mainPanel.add(button3);
+		mainPanel.add(button4);
 		
 		
 		
 		
-		/*
-		// 1. JFrame
-				// west panel
-		JPanel west = new JPanel();
-		JButton test = new JButton("Test");
-		JButton list = new JButton("List");
-		JButton clear = new JButton("Clear");
-		JButton reset = new JButton("Reset");
-		west.add(test);
-		west.add(list);
-		west.add(clear);
-		west.add(reset);
-		
-		// north panel
-		JPanel north =  new JPanel();
-		
-		
-		// center
-		JTextArea primes_list = new JTextArea();
-		primes_list.setEditable(false);
-		primes_list.setLineWrap(true);
-		primes_list.setWrapStyleWord(true);
-
-		
-		// south panel
-		JPanel south = new JPanel(); 
-		JLabel inputLabel = new JLabel("Input");
-		JTextField input = new JTextField(10);
-		JProgressBar progress = new JProgressBar();
-		JLabel primesFoundLabel = new JLabel("Primes Found");
-		JTextField primesFound = new JTextField(10);
-		south.add(inputLabel);
-		south.add(input);
-		south.add(progress);
-		south.add(primesFoundLabel);
-		south.add(primesFound);
-		mainPanel.add(south, BorderLayout.SOUTH);
-		
-		// define layout
-		mainPanel.setLayout(new BorderLayout());
-		
-		// Prime number output (center)
-//		primes_list.setEditable(false);
-//		primes_list.setLineWrap(true);
-//		primes_list.setWrapStyleWord(true);
-//		mainPanel.add(primes_scroll,BorderLayout.CENTER);
-		
-		// Buttons (west)
-		west.setLayout(new GridLayout(10,1));
-		
-		// add listeners
-//		test.addActionListener(this);
-//		list.addActionListener(this);
-//		clear.addActionListener(this);
-		
-		// add buttons to west panel
-//		west.add(test);
-//		west.add(list);
-//		west.add(clear);
-		mainPanel.add(west, BorderLayout.WEST);
-		
-		// Variable/progress (south)
-//		progress.setString("Waiting");
-//		progress.setStringPainted(true);
-//		primesFound.setEditable(false);
-//		south.add(inputLabel);
-//		south.add(input);
-//		south.add(progress);
-//		south.add(primesFoundLabel);
-//		south.add(primesFound);
-		mainPanel.add(south, BorderLayout.SOUTH);
-		mainFrame.add(mainPanel);
-		mainFrame.setVisible(true);
-
-
-
-
-		*/
-		
-		
-		
+		// last item in program
+	    mainFrame.add(mainPanel);
+	    mainFrame.setVisible(true);
+	    */
 	}
 	
 	
@@ -165,39 +85,96 @@ public class JPanelTest extends JFrame
 	public JPanelTest()
 	{
 		
-		// 1. set up a constructor for a JFrame
+		// set up a constructor for a JFrame
 		super("JPanelTestJFrame");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);	// must have to close window
-		setSize(400, 600);
-		setResizable(false);
-		
-		/*
-		// define layout
-		mainPanel.setLayout(new BorderLayout());
-		
-		
-		// define panels objects
-		JPanel north = new JPanel();
-		JPanel south = new JPanel();
-		JPanel east = new JPanel();
-		JPanel west = new JPanel();
-		JPanel center = new JPanel();
-		
-		// add panels to main panel
-		mainPanel.add(north, BorderLayout.NORTH);
-		
-		
-		
-		
-		
-		
-		add(mainPanel);
-		*/
-		
+		setSize(400,300);
+        setResizable(false);
+ 
+        this.GridLayoutTest();
+        this.ContainerLayoutTest();
+        
+ 
+     	
 		setVisible(true);		// always the last option
 		
 	}
 	
+	public void ContainerLayoutTest()
+	{
+		// create a panel object
+ 		JPanel mainPanel = new JPanel(new GridLayout(2,2));
+ 		
+// 		http://www.toves.org/books/java/ch24-swing/
+// 		implement the container layout
+// 		Container contents = mainPanel.getContentPane();
+
+ 		// create buttons
+ 		JButton button1 = new JButton();
+ 		button1.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button1.setForeground(Color.BLUE);
+ 		button1.setText("button 1");
+ 		
+ 		JButton button2 = new JButton();
+ 		button2.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button2.setForeground(Color.RED);
+ 		button2.setText("button 2");
+ 		
+ 		JButton button3 = new JButton();
+ 		button3.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button3.setForeground(Color.GREEN);
+ 		button3.setText("button 3");
+ 		
+ 		JButton button4 = new JButton();
+ 		button4.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button4.setForeground(Color.MAGENTA);
+ 		button4.setText("button 4");
+ 		
+ 		// add buttons to panel
+ 		mainPanel.add(button1);
+ 		mainPanel.add(button2);
+ 		mainPanel.add(button3);
+ 		mainPanel.add(button4);
+ 		
+     	add(mainPanel);
+		
+	}
 	
+	
+	public void GridLayoutTest()
+	{
+		// create a panel object
+ 		JPanel mainPanel = new JPanel(new GridLayout(2,2));
+
+ 		// create buttons
+ 		JButton button1 = new JButton();
+ 		button1.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button1.setForeground(Color.BLUE);
+ 		button1.setText("button 1");
+ 		
+ 		JButton button2 = new JButton();
+ 		button2.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button2.setForeground(Color.RED);
+ 		button2.setText("button 2");
+ 		
+ 		JButton button3 = new JButton();
+ 		button3.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button3.setForeground(Color.GREEN);
+ 		button3.setText("button 3");
+ 		
+ 		JButton button4 = new JButton();
+ 		button4.setFont(new Font("Courier", Font.BOLD, 22));
+ 		button4.setForeground(Color.MAGENTA);
+ 		button4.setText("button 4");
+ 		
+ 		// add buttons to panel
+ 		mainPanel.add(button1);
+ 		mainPanel.add(button2);
+ 		mainPanel.add(button3);
+ 		mainPanel.add(button4);
+ 		
+     	add(mainPanel);
+		
+	}
 
 }
