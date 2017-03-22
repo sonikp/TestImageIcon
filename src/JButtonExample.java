@@ -50,7 +50,10 @@ public class JButtonExample extends JFrame implements ActionListener
 
         
 		// Creating Button          
-		button.setBounds(20,20,90,50);  
+		
+
+    	
+    	button.setBounds(20,20,90,50);  
 		button.addActionListener(this);
 		
 		button1.setBounds(100,20,90,50);  
@@ -88,6 +91,10 @@ public class JButtonExample extends JFrame implements ActionListener
 		switch(value)
 		{
 		case 0:
+			// added to solve the MAC problem of background color
+			button.setOpaque(true);
+			button1.setOpaque(true);
+			
 			button.setBackground(null);
 			button.setForeground(null);
 			button1.setBackground(null);
